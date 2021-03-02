@@ -10,6 +10,7 @@ const CategoryIcon = styled.div`
     align-items: center;
     border: solid 1.5px #e5e5e5;
     ${props => props.active === 'true' && 'border: none;'}
+    ${props => props.dashed && 'border: dashed 2px #e5e5e5;'}
     margin-bottom: 10px;
 
     svg {

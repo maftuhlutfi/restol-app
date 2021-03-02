@@ -5,7 +5,7 @@ const Content = styled.div`
     flex-direction: row;
 
     & > div:nth-child(1) {
-        width: fit-content;
+        min-width: 70%;
         margin-right: 40px;
     }
 
@@ -15,7 +15,7 @@ const Content = styled.div`
 
     @media (max-width: 600px) {
         & > div:nth-child(1) {
-            width: 100%;
+            min-width: 100%;
         }
         & > div:nth-child(2) {
             display:none;

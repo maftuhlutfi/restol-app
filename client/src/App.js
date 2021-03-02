@@ -5,7 +5,7 @@ import LoginRegisterPage from "./components/pages/LoginRegister";
 function App() {
   return (
     <Switch>
-      <Route exact path='/' render={() => <AppPages />} />
+      <Route path='/' render={() => <AppPages />} />
       <Route 
         exact 
         path='/login' 
@@ -15,11 +15,6 @@ function App() {
         exact 
         path='/signup' 
         render={() => <LoginRegisterPage type='signup' />}
-      />
-      <Route 
-        exact 
-        path='/app' 
-        render={() => <AppPages />}
       />
     </Switch>
   );

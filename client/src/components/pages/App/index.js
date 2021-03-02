@@ -1,6 +1,7 @@
 import { Route, Switch } from "react-router-dom";
 import Navigation from "../../App/Navigation";
 import HomePage from "../Home";
+import ProductPage from "../Product";
 import Content from "./Content";
 import Wrapper from "./Wrapper";
 
@@ -10,11 +11,16 @@ const AppPages = () => {
             <Navigation />
             <Content>
                 <Switch>
-                <Route 
+                    <Route 
+                        exact 
+                        path='/' 
+                        render={() => <HomePage />}
+                    />
+                    <Route 
                     exact 
-                    path='/' 
-                    render={() => <HomePage />}
-                />
+                    path='/product' 
+                    render={() => <ProductPage />}
+                    />
                 </Switch>
             </Content>
         </Wrapper>

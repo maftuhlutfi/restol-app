@@ -9,7 +9,7 @@ const CategoryItem = ({index, active, title, icon, onClick}) => {
             <CategoryIcon active={active === index ? 'true' : 'false'}>
                 <ReactSVG src={`./assets/icon/${icon}`} />
             </CategoryIcon>
-            <DescTitle mb='0'>
+            <DescTitle color={active === index ? '#5b5b5b' : '#b5b5b5'} mb='0'>
                 {title}
             </DescTitle>
         </Card>

@@ -12,6 +12,8 @@ body,input {
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+
+  -webkit-overflow-scrolling: touch;
 }
 
 code {
@@ -31,3 +33,37 @@ code {
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: #c0c0c0;
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  }
+  ::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+  }
+  ::-webkit-scrollbar-thumb {
+  background: #b5b5b5;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+  background: #b0b0b0;
+  }
+  ::-webkit-scrollbar-thumb:active {
+  background: #FF617A;
+  }
+  ::-webkit-scrollbar-track {
+  background: #dadada;
+  border: 0px none #ffffff;
+  }
+  ::-webkit-scrollbar-track:hover {
+  background: #cacaca;
+  }
+  ::-webkit-scrollbar-track:active {
+  background: #cacaca;
+  }
+  ::-webkit-scrollbar-corner {
+  background: transparent;
+  }
+  
