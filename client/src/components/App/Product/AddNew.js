@@ -6,7 +6,7 @@ import { ReactSVG } from "react-svg";
 const Icon = styled.div`
     background-color: white;
     border-radius: 10px;
-    height: 155px;
+    height: 160px;
     display: flex;
     justify-content: center;
     align-items: center;

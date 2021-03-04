@@ -21,7 +21,7 @@ const Dropdown = ({text, list}) => {
             <span>{text} <b>{active}</b></span>
             <ReactSVG src='./assets/icon/drop.svg' />
             {!collapse && <ListContainer>
-                {list.filter(li => li !== active).map((li, index) => <ListItem key={index} onClick={() => handleClick(li)}>{li}</ListItem>)}
+                {list.map((li, index) => <ListItem active={active === li} key={index} onClick={() => handleClick(li)}>{li}</ListItem>)}
             </ListContainer>}
         </Wrapper>
     );
