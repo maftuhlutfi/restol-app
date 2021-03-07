@@ -1,6 +1,7 @@
 import { Route, Switch } from "react-router-dom";
 import Navigation from "../../App/Navigation";
 import BillPage from "../Bill";
+import DeliveryPage from "../Delivery";
 import HomePage from "../Home";
 import OrderPage from "../Order";
 import ProductPage from "../Product";
@@ -32,6 +33,11 @@ const AppPages = () => {
                         exact 
                         path='/payment' 
                         render={() => <BillPage />}
+                    />
+                    <Route 
+                        exact 
+                        path='/delivery' 
+                        render={() => <DeliveryPage />}
                     />
                 </Switch>
             </Content>
