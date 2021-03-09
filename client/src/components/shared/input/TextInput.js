@@ -7,6 +7,7 @@ const TextInput = styled.input`
     color: #5b5b5b;
     padding: 2px 15px;
     border-radius: 10px;
+    width: 100%;
 
     &:focus {
         border-color: #ff2454;
