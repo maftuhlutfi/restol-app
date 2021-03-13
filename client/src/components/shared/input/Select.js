@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const Wrapper = styled.select`
+const Select = styled.select`
     height: 50px;
     border: 1px solid #b5b5b5;
     font-size: 16px;
@@ -8,7 +8,6 @@ const Wrapper = styled.select`
     padding: 2px 15px;
     border-radius: 10px;
     width: 100%;
-    display: none;
     position: relative;
 
     &:focus {
@@ -20,20 +19,11 @@ const Wrapper = styled.select`
         cursor: pointer;
     }
 
-    ${props => props.first == props.value && 'color: #c0c0c0;'}
-`
+    & > option:first-child {
+        display: none;
+    }
 
-const Option = styled.option`
-    font-size: 16px;
-    padding: 10px 20px;
+    ${props => props.value === 'Select payment method' && 'color: #c0c0c0;'}
 `
-
-const Select = ({options}) => {
-    return (
-        <Wrapper first={options[0].toLowerCase()}>
-            {options.map((opt, index) => <Option key={index} value={opt.toLowerCase()}>{opt}</Option>)}
-        </Wrapper>
-    );
-}
  
 export default Select;

@@ -44,18 +44,18 @@ const color = {
 
 const shadow = {
     primary: css`
-        filter: drop-shadow(0px 8px 15px rgba(255, 36, 84, 0.6));
+        box-shadow: 0px 5px 15px rgba(255, 36, 84, 0.45);
     `,
     secondary: css`
-        filter: drop-shadow(0px 8px 15px rgba(255, 204, 50, 0.55));
+        box-shadow: 0px 5px 15px rgba(255, 204, 50, 0.45);
     `,
     disabled: css`
-        filter: drop-shadow(0px 8px 15px rgba(10, 10, 10, 0.6));
+        box-shadow: 0px 5px 15px rgba(10, 10, 10, 0.45);
     `,
 }
 
 const StyledButton = styled.button`
-    padding: 5px;
+    padding: 5px 15px;
     text-align: center;
     font-size: 18px;
     height: 50px;
@@ -64,6 +64,11 @@ const StyledButton = styled.button`
     border: none;
     font-family: "Poppins";
     cursor: pointer;
+
+    &:focus {
+        outline: none;
+        filter: brightness(95%);
+    }
 
     ${props => props.sm && size.sm}
     ${props => props.md && size.md}
