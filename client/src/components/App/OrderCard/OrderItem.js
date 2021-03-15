@@ -30,7 +30,7 @@ const Qty = styled.span`
     font-size: 16px;
     font-weight: 600;
     border-radius: 5px;
-    ${props => props.edit && 'padding: 2px 5px;border: solid 1px #5b5b5b;background-color: #f0f0f0;'}
+    ${props => props.edit && 'padding: 2px 5px;border: solid 1px #5b5b5b;background-color: #f0f0f0;cursor: text;'}
 `
 
 const NamePriceWrapper = styled.div`

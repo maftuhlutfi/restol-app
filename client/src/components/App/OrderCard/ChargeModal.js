@@ -8,10 +8,18 @@ import { useState } from 'react';
 import Option from '../../shared/input/Option';
 import StyledButton from '../../shared/StyledButton';
 import ButtonGroup from '../../shared/ButtonGroup';
+import styled from 'styled-components'
+import { CloseBtn } from '../../shared/Modal';
 
-const ChargeModal = ({show}) => {
+const Button = styled(StyledButton)`
+    margin-top: 20px;
+`
+
+const ChargeModal = () => {
     const options = ['Select payment method', 'Cash', 'Bank transfer']
     const [input, setInput] = useState({name: '', payment: options[0]})
+
+    const [show, setShow] = useState(false)
 
     const handleChange = e => {
         const {value, name} = e.target
@@ -23,22 +31,26 @@ const ChargeModal = ({show}) => {
     }
 
     return (
-        <Modal show={show}>
-            <ModalBody width='500px'>
-                <ModalTitle>
-                    Charge the Bill
-                </ModalTitle>
-                <InputGroup>
-                    <TextInput onChange={handleChange} name='name' value={input.name} placeholder='Name' autoComplete='false' />
-                    <Select onChange={handleChange} name='payment' value={input.payment}>
-                        {options.map((opt, index) => <Option key={index} index={index} value={opt}>{opt}</Option>)}
-                    </Select>
-                </InputGroup>
-                <ButtonGroup>
-                    <StyledButton primary>Charge <span style={{fontWeight: '400'}}>Rp. 16.500</span></StyledButton>
-                </ButtonGroup>
-            </ModalBody>
-        </Modal>
+        <>
+            <Button onClick={() => setShow(true)} primary>Add to order</Button>
+            <Modal show={show} setShow={setShow}>
+                <ModalBody width='500px'>
+                    <CloseBtn onClick={() => setShow(false)} />
+                    <ModalTitle>
+                        Charge the Bill
+                    </ModalTitle>
+                    <InputGroup>
+                        <TextInput onChange={handleChange} name='name' value={input.name} placeholder='Name' autoComplete='false' />
+                        <Select onChange={handleChange} name='payment' value={input.payment}>
+                            {options.map((opt, index) => <Option key={index} index={index} value={opt}>{opt}</Option>)}
+                        </Select>
+                    </InputGroup>
+                    <ButtonGroup>
+                        <StyledButton primary>Charge <span style={{fontWeight: '400'}}>Rp. 16.500</span></StyledButton>
+                    </ButtonGroup>
+                </ModalBody>
+            </Modal>
+        </>
     );
 }
  

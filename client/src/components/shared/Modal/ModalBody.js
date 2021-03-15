@@ -10,6 +10,7 @@ const ModalBody = styled.div`
     justify-content: center;
     min-width: 100px;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.01);
+    position: relative;
 
     ${props => props.width && `width: ${props.width};`}
 `

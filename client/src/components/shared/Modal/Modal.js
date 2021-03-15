@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const Modal = styled.div`
+const Wrapper = styled.div`
     position: fixed;
     background-color: rgba(0,0,0,0.6);
     width: 100vw;
@@ -12,4 +12,12 @@ const Modal = styled.div`
     left: 0;
 `
 
-export default Modal
+const Modal = ({show, setShow, children}) => {
+    return (
+        <Wrapper show={show}>
+            {children}
+        </Wrapper>
+    );
+}
+ 
+export default Modal;
