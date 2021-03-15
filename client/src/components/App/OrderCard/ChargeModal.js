@@ -41,7 +41,7 @@ const ChargeModal = () => {
                     </ModalTitle>
                     <InputGroup>
                         <TextInput onChange={handleChange} name='name' value={input.name} placeholder='Name' autoComplete='false' />
-                        <Select onChange={handleChange} name='payment' value={input.payment}>
+                        <Select onChange={handleChange} name='payment' value={input.payment} placeholder='Select payment method'>
                             {options.map((opt, index) => <Option key={index} index={index} value={opt}>{opt}</Option>)}
                         </Select>
                     </InputGroup>

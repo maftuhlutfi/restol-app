@@ -12,7 +12,7 @@ const Wrapper = styled.div`
     left: 0;
 `
 
-const Modal = ({show, setShow, children}) => {
+const Modal = ({show, children}) => {
     return (
         <Wrapper show={show}>
             {children}

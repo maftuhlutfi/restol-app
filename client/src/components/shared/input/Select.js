@@ -23,7 +23,7 @@ const Select = styled.select`
         display: none;
     }
 
-    ${props => props.value === 'Select payment method' && 'color: #c0c0c0;'}
+    ${props => props.value === props.placeholder && 'color: #c0c0c0;'}
 `
  
 export default Select;

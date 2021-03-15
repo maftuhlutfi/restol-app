@@ -50,7 +50,7 @@ const shadow = {
         box-shadow: 0px 5px 15px rgba(255, 204, 50, 0.45);
     `,
     disabled: css`
-        box-shadow: 0px 5px 15px rgba(10, 10, 10, 0.45);
+        box-shadow: 0px 5px 15px rgba(10, 10, 10, 0.2);
     `,
 }
 
