@@ -13,5 +13,7 @@ const TextInput = styled.input`
         border-color: #ff2454;
         outline: none;
     }
+
+    ${props => props.type == 'number' && 'color: green;'}
 `
 export default TextInput
