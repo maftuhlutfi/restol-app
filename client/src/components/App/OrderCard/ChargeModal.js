@@ -32,7 +32,7 @@ const ChargeModal = () => {
 
     return (
         <>
-            <Button onClick={() => setShow(true)} primary>Add to order</Button>
+            <Button onClick={() => setShow(true)} color='primary'>Add to order</Button>
             <Modal show={show} setShow={setShow}>
                 <ModalBody width='500px'>
                     <CloseBtn onClick={() => setShow(false)} />
@@ -46,7 +46,7 @@ const ChargeModal = () => {
                         </Select>
                     </InputGroup>
                     <ButtonGroup>
-                        <StyledButton primary>Charge <span style={{fontWeight: '400'}}>Rp. 16.500</span></StyledButton>
+                        <StyledButton color='primary'>Charge <span style={{fontWeight: '400'}}>Rp. 16.500</span></StyledButton>
                     </ButtonGroup>
                 </ModalBody>
             </Modal>

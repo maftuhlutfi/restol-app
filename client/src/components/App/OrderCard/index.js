@@ -10,6 +10,7 @@ import Detail from './Detail'
 import styled from 'styled-components'
 import items from './items'
 import ChargeModal from './ChargeModal';
+import StyledButton from '../../shared/StyledButton';
 
 const NoOrderText = styled.span`
     text-align: center;
@@ -18,16 +19,19 @@ const NoOrderText = styled.span`
 
 const OrderCard = () => {
     const [edit, setEdit] = useState(false)
-    const [showModal, setShowModal] = useState(false)
 
     return (
         <Wrapper>
             <Header>
                 <HeaderTitle size='22px' title='Add Order' />
-                {true && 
-                <IconWrapper onClick={() => setEdit(prev => !prev)}>
-                    <ReactSVG src='./assets/icon/edit.svg' />
-                </IconWrapper>
+                {edit ? 
+                    <StyledButton size='sm' color='primary' variant='outlined' onClick={() => setEdit(false)}>
+                        Done
+                    </StyledButton>
+                    :
+                    <IconWrapper onClick={() => setEdit(true)}>
+                        <ReactSVG src='./assets/icon/edit.svg' />
+                    </IconWrapper>
                 }
             </Header>
             {false ? 
@@ -38,7 +42,7 @@ const OrderCard = () => {
                     {items.map((item, index) => <OrderItem key={index} {...item} edit={edit} />)}
                 </OrderList>
                 <Detail />
-                <ChargeModal show={showModal} />
+                <ChargeModal />
                 </>
             }
         </Wrapper>

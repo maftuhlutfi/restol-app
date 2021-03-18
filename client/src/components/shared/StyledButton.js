@@ -17,8 +17,9 @@ const size = {
 
 const color = {
     primary: css`
-        background: #FF617A;
+        background: #ff617a;
         color: white;
+        box-shadow: 0px 5px 15px rgba(255, 36, 84, 0.45);
 
         svg path {
             fill: white;
@@ -27,6 +28,7 @@ const color = {
     secondary: css`
         background: #ffdb6d;
         color: #5b5b5b;
+        box-shadow: 0px 5px 15px rgba(255, 204, 50, 0.45);
 
         svg path {
             fill: #5b5b5b;
@@ -35,6 +37,7 @@ const color = {
     disabled: css`
         background: #e5e5e5;
         color: #5b5b5b;
+        box-shadow: 0px 5px 15px rgba(10, 10, 10, 0.2);
 
         svg path {
             fill: #5b5b5b;
@@ -42,16 +45,29 @@ const color = {
     `,
 }
 
-const shadow = {
-    primary: css`
-        box-shadow: 0px 5px 15px rgba(255, 36, 84, 0.45);
-    `,
-    secondary: css`
-        box-shadow: 0px 5px 15px rgba(255, 204, 50, 0.45);
-    `,
-    disabled: css`
-        box-shadow: 0px 5px 15px rgba(10, 10, 10, 0.2);
-    `,
+const variant = {
+    outlined: {
+        primary: css`
+            background: white;
+            color: #ff617a;
+            box-shadow: none;
+            border: solid 1px #ff617a;
+
+            svg path {
+                fill: #ff617a;
+            }
+        `,
+        secondary: css`
+            background: #5b5b5b;
+            color: #ffdb6d;
+            box-shadow: none;
+            border: solid 1px #ffdb6d;
+
+            svg path {
+                fill: #ffdb6d;
+            }
+        `
+    }
 }
 
 const StyledButton = styled.button`
@@ -70,13 +86,9 @@ const StyledButton = styled.button`
         filter: brightness(95%);
     }
 
-    ${props => props.sm && size.sm}
-    ${props => props.md && size.md}
-    ${props => props.lg && size.lg}
-
-    ${props => props.primary && color.primary + shadow.primary}
-    ${props => props.secondary && color.secondary + shadow.secondary}
-    ${props => props.disabled && color.disabled + shadow.disabled}
+    ${props => props.size && size[props.size]} 
+    ${props => props.color && color[props.color]}
+    ${props => props.variant && variant[props.variant][props.color]}
 `
 
 export default StyledButton;

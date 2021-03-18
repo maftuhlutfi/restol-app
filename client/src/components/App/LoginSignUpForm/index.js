@@ -25,7 +25,7 @@ const Form = ({type}) => {
                     <StyledLink>Lupa password?</StyledLink>
                 </div>}
             </InputGroup>
-            <StyledButton style={{marginBottom: '30px'}} primary>{btnText}</StyledButton>
+            <StyledButton style={{marginBottom: '30px'}} color='primary'>{btnText}</StyledButton>
             <Desc mb='0px'>
                 {footerDesc} 
                 <StyledLink to={href}>{link}</StyledLink>

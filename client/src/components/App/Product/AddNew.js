@@ -86,8 +86,8 @@ const AddNewProduct = () => {
                         <FileInput name="foto" value={foto} onChange={handleChange} label="Upload product photo" type="file" />
                     </InputGroup>
                     <ButtonGroup>
-                        <StyledButton disabled onClick={() => setShow(false)}>Cancel</StyledButton>
-                        <StyledButton primary>Save</StyledButton>
+                        <StyledButton color='primary' variant='outlined' onClick={() => setShow(false)}>Cancel</StyledButton>
+                        <StyledButton color='primary'>Save</StyledButton>
                     </ButtonGroup>
                 </ModalBody>
             </Modal>

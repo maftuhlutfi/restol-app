@@ -47,15 +47,15 @@ const ProductItem = ({name, price, foto, edit}) => {
             <Price>Rp. {price}</Price>
             {edit ? 
             <ButtonGroup>
-                <StyledButton sm secondary>
+                <StyledButton size='sm' color='secondary'>
                     <ReactSVG src='./assets/icon/edit.svg' />
                 </StyledButton>
-                <StyledButton sm primary>
+                <StyledButton size='sm' color='primary'>
                     <ReactSVG src='./assets/icon/delete.svg' />
                 </StyledButton>
             </ButtonGroup>
             :
-            <StyledButton sm primary>ADD</StyledButton>
+            <StyledButton size='sm' color='primary'>ADD</StyledButton>
             }
         </Card>
     );
