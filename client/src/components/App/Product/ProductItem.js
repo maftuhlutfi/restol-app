@@ -2,7 +2,7 @@ import Card from "../../shared/Card";
 
 import styled from "styled-components"
 import StyledButton from "../../shared/StyledButton";
-import { ReactSVG } from "react-svg";
+import DeleteProduct from './DeleteProduct'
 import EditProduct from "./EditProduct";
 
 const Picture = styled.div`
@@ -52,9 +52,7 @@ const ProductItem = ({product, edit}) => {
                 {edit ? 
                 <ButtonGroup>
                     <EditProduct initData={product} />
-                    <StyledButton size='sm' color='primary'>
-                        <ReactSVG src='./assets/icon/delete.svg' />
-                    </StyledButton>
+                    <DeleteProduct />
                 </ButtonGroup>
                 :
                 <StyledButton size='sm' color='primary'>ADD</StyledButton>
