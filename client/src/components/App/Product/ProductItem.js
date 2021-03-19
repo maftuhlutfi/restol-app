@@ -3,6 +3,7 @@ import Card from "../../shared/Card";
 import styled from "styled-components"
 import StyledButton from "../../shared/StyledButton";
 import { ReactSVG } from "react-svg";
+import EditProduct from "./EditProduct";
 
 const Picture = styled.div`
     width: 90px;
@@ -39,25 +40,27 @@ const ButtonGroup = styled.div`
     }
 `
 
-const ProductItem = ({name, price, foto, edit}) => {
+const ProductItem = ({product, edit}) => {
+    const {name, price, foto} = product
+
     return (
-        <Card padding='25px' width='100%'>
-            <Picture foto={foto} />
-            <Name>{name}</Name>
-            <Price>Rp. {price}</Price>
-            {edit ? 
-            <ButtonGroup>
-                <StyledButton size='sm' color='secondary'>
-                    <ReactSVG src='./assets/icon/edit.svg' />
-                </StyledButton>
-                <StyledButton size='sm' color='primary'>
-                    <ReactSVG src='./assets/icon/delete.svg' />
-                </StyledButton>
-            </ButtonGroup>
-            :
-            <StyledButton size='sm' color='primary'>ADD</StyledButton>
-            }
-        </Card>
+        <>
+            <Card padding='25px' width='100%'>
+                <Picture foto={foto} />
+                <Name>{name}</Name>
+                <Price>Rp. {price}</Price>
+                {edit ? 
+                <ButtonGroup>
+                    <EditProduct initData={product} />
+                    <StyledButton size='sm' color='primary'>
+                        <ReactSVG src='./assets/icon/delete.svg' />
+                    </StyledButton>
+                </ButtonGroup>
+                :
+                <StyledButton size='sm' color='primary'>ADD</StyledButton>
+                }
+            </Card>
+        </>
     );
 }
  

@@ -27,7 +27,7 @@ const ProductPage = () => {
                 </SubHeader>
                 <ProductList>
                     <AddNewProduct />
-                    {products.map((product, index) => <ProductItem edit key={index} {...product} />)}
+                    {products.map((product, index) => <ProductItem edit key={index} product={product} />)}
                 </ProductList>
             </div>
         </>

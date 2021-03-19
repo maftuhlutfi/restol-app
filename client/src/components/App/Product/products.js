@@ -2,62 +2,86 @@ const products = [
     {
         name: 'Mie Ayam',
         price: '5000',
-        foto: './assets/food.png'
+        foto: './assets/food.png',
+        category: 'Makanan',
+        discount: '',
     },
     {
         name: 'Mie Ayam',
         price: '5000',
-        foto: './assets/food.png'
+        foto: './assets/food.png',
+        category: 'Makanan',
+        discount: '',
     },
     {
         name: 'Mie Ayam',
         price: '5000',
-        foto: './assets/food.png'
+        foto: './assets/food.png',
+        category: 'Makanan',
+        discount: '',
     },
     {
         name: 'Mie Ayam',
         price: '5000',
-        foto: './assets/food.png'
+        foto: './assets/food.png',
+        category: 'Makanan',
+        discount: '',
     },
     {
         name: 'Mie Ayam Special',
         price: '5000',
-        foto: './assets/food.png'
+        foto: './assets/food.png',
+        category: 'Makanan',
+        discount: '',
     },
     {
         name: 'Mie Ayam',
         price: '5000',
-        foto: './assets/food.png'
+        foto: './assets/food.png',
+        category: 'Makanan',
+        discount: '',
     },
     {
         name: 'Mie Ayam',
         price: '5000',
-        foto: './assets/food.png'
+        foto: './assets/food.png',
+        category: 'Makanan',
+        discount: '',
     },
     {
         name: 'Mie Ayam',
         price: '5000',
-        foto: './assets/food.png'
+        foto: './assets/food.png',
+        category: 'Makanan',
+        discount: '',
     },
     {
         name: 'Mie Ayam',
         price: '5000',
-        foto: './assets/food.png'
+        foto: './assets/food.png',
+        category: 'Makanan',
+        discount: '',
     },
     {
         name: 'Mie Ayam',
         price: '5000',
-        foto: './assets/food.png'
+        foto: './assets/food.png',
+        category: 'Makanan',
+        discount: '',
     },
     {
         name: 'Mie Ayam',
         price: '5000',
-        foto: './assets/food.png'
+        foto: './assets/food.png',
+        category: 'Makanan',
+        discount: '',
     },
     {
         name: 'Mie Ayam',
         price: '5000',
-        foto: './assets/food.png'
+        foto: './assets/food.png',
+        category: 'Makanan',
+        discount: '',
     },
 ]
 

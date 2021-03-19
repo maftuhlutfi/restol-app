@@ -50,7 +50,7 @@ const FileInput = ({label, onChange, ...props}) => {
 
     return (
         <Wrapper image={image}>
-            <Input onChange={readFile} id={props.name} accept='.png, .jpg, .gif' {...props} />
+            <Input onChange={readFile} id={props.name} {...props} />
             <label htmlFor={props.name}>
                 {!image && <ReactSVG src='./assets/icon/upload.svg' />}
                 {!image &&

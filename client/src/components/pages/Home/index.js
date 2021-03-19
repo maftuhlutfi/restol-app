@@ -28,7 +28,7 @@ const HomePage = () => {
                         <Dropdown text='Sort by' list={['Popular', 'Name', 'Price']} />
                     </SubHeader>
                     <ProductList>
-                        {products.map((product, index) => <ProductItem key={index} {...product} />)}
+                        {products.map((product, index) => <ProductItem key={index} product={product} />)}
                     </ProductList>
                 </div>
                 <div>
