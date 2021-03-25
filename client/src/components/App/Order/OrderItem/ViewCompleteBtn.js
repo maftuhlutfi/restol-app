@@ -1,5 +1,8 @@
+import { useState } from "react"
 import { ReactSVG } from "react-svg"
 import styled from "styled-components"
+import ViewModal from "./ViewModal"
+import ConfirmationModal from "../../../shared/ConfirmationModal";
 
 const ButtonGroup = styled.div`
     display: flex;
@@ -21,6 +24,7 @@ const IconBtn = styled.span`
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 
     svg {
         width: 20px;
@@ -29,15 +33,36 @@ const IconBtn = styled.span`
 `
 
 const ViewCompleteBtn = () => {
+    const [show, setShow] = useState(false)
+
+    const showModal = name => {
+        setShow(name)
+    }
+
+    const closeModal = () => {
+        setShow(false)
+    }
+
     return (
-        <ButtonGroup>
-            <IconBtn>
-                <ReactSVG src='./assets/icon/view.svg' />
-            </IconBtn>
-            <IconBtn>
-                <ReactSVG src='./assets/icon/check1.svg' />
-            </IconBtn>
-        </ButtonGroup>
+        <>
+            <ButtonGroup>
+                <IconBtn onClick={() => showModal('view')}>
+                    <ReactSVG src='./assets/icon/view.svg' />
+                </IconBtn>
+                <IconBtn onClick={() => showModal('done')}>
+                    <ReactSVG src='./assets/icon/check1.svg' />
+                </IconBtn>
+            </ButtonGroup>
+            <ViewModal show={show == 'view'} closeModal={closeModal} />
+            <ConfirmationModal
+                title='Are you sure?'
+                body='Are you sure the order has been completed? This process cannot be undone.'
+                show={show == 'done'}
+                closeModal={closeModal}
+                confirm={() => console.log('Product deleted')}
+                icon='./assets/icon/check-circle.svg'
+            />
+        </>
     );
 }
  

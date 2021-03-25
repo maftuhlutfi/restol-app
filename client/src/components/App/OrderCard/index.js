@@ -17,13 +17,13 @@ const NoOrderText = styled.span`
     font-size: 14px;
 `
 
-const OrderCard = () => {
+const OrderCard = ({view}) => {
     const [edit, setEdit] = useState(false)
 
     return (
-        <Wrapper>
+        <Wrapper style={view && {width: '100%', padding: '0', boxShadow: 'none'}}>
             <Header>
-                <HeaderTitle size='22px' title='Add Order' />
+                {!view ? <HeaderTitle size='22px' title='Add Order' /> : <div></div> }
                 {edit ? 
                     <StyledButton size='sm' color='primary' variant='outlined' onClick={() => setEdit(false)}>
                         Done
@@ -42,7 +42,7 @@ const OrderCard = () => {
                     {items.map((item, index) => <OrderItem key={index} {...item} edit={edit} />)}
                 </OrderList>
                 <Detail />
-                <ChargeModal />
+                {!view && <ChargeModal />}
                 </>
             }
         </Wrapper>

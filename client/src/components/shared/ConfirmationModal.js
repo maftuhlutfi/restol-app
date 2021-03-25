@@ -17,12 +17,12 @@ const Icon = styled(ReactSVG)`
     }
 `
 
-const ConfirmationModal = ({title, body, show, closeModal, confirm}) => {
+const ConfirmationModal = ({title, body, show, closeModal, confirm, icon}) => {
     return (
         <Modal show={show}>
             <ModalBody width='500px'>
                 <CloseBtn onClick={closeModal} />
-                <Icon src='./assets/icon/delete-circle.svg' />
+                <Icon src={icon} />
                 <ModalTitle>
                     {title}
                 </ModalTitle>

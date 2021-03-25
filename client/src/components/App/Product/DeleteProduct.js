@@ -17,6 +17,7 @@ const DeleteProduct = () => {
                 show={show}
                 closeModal={() => setShow(false)}
                 confirm={() => console.log('Product deleted')}
+                icon='./assets/icon/delete-circle.svg'
             />
         </>
     );

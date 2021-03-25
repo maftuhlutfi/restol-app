@@ -2,8 +2,6 @@ import { ReactSVG } from "react-svg";
 import Card from "../../shared/Card";
 import DescTitle from "../../shared/text/DescTitle";
 import CategoryIcon from "./CategoryIcon";
-import EditCategory from "./EditCategory";
-import DeleteCategory from "./DeleteCategory";
 
 import styled from "styled-components"
 import { useState } from "react";
@@ -94,6 +92,7 @@ const CategoryItem = ({index, active, title, icon, onClick, edit}) => {
                     show={show == 'delete'}
                     closeModal={closeModal}
                     confirm={() => console.log('Product deleted')}
+                    icon='./assets/icon/delete-circle.svg'
                 />
             </Card>
     );
