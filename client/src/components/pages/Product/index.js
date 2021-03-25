@@ -19,7 +19,7 @@ const ProductPage = () => {
             <div>
                 <CategoryList>
                     <AddNewCategory />
-                    {categories.map((category, index) => <CategoryItem index={index} onClick={handleClick} active={activeIndex} key={index} {...category} />)}
+                    {categories.filter(item => item.title != 'Populer').map((category, index) => <CategoryItem edit index={index} onClick={handleClick} active={activeIndex} key={index} {...category} />)}
                 </CategoryList>
                 <SubHeader>
                     <HeaderTitle title='Choose Product' size='28px' />

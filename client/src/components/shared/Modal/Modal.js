@@ -10,6 +10,7 @@ const Wrapper = styled.div`
     align-items: center;
     top: 0;
     left: 0;
+    z-index: 1000;
 `
 
 const Modal = ({show, children}) => {
