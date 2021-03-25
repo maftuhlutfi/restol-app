@@ -1,4 +1,6 @@
+import { useState } from "react";
 import styled from "styled-components"
+import ViewModal from "./ViewModal";
 
 const Wrapper = styled.span`
     width: 100%;
@@ -9,13 +11,23 @@ const Wrapper = styled.span`
     text-align: center;
     padding: 7px 15px;
     font-weight: 500;
+    cursor: pointer;
 `
 
 const Detail = () => {
+    const [show, setShow] = useState(false)
+
     return (
-        <Wrapper>
-            Details
-        </Wrapper>
+        <>
+            <Wrapper onClick={() => setShow(true)}>
+                Details
+            </Wrapper>
+            <ViewModal 
+                show={show}
+                closeModal={() => setShow(false)}
+                done
+            />
+        </>
     );
 }
  

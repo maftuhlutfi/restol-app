@@ -17,11 +17,13 @@ const NoOrderText = styled.span`
     font-size: 14px;
 `
 
-const OrderCard = ({view}) => {
+const OrderCard = ({view, done}) => {
     const [edit, setEdit] = useState(false)
 
     return (
         <Wrapper style={view && {width: '100%', padding: '0', boxShadow: 'none'}}>
+            {
+            !done &&
             <Header>
                 {!view ? <HeaderTitle size='22px' title='Add Order' /> : <div></div> }
                 {edit ? 
@@ -34,6 +36,7 @@ const OrderCard = ({view}) => {
                     </IconWrapper>
                 }
             </Header>
+            }
             {false ? 
                 <NoOrderText>No product to order.</NoOrderText>
                 :
