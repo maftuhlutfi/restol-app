@@ -8,7 +8,7 @@ import Done from "./Done";
 import Address from "./Address";
 import Time from "./Time";
 
-const OrderItem = ({id, name, time, distance, completed, doneAt, address}) => {
+const DeliveryItem = ({id, name, time, distance, completed, doneAt, address}) => {
     return (
         <Wrapper completed={completed}>
             <div>
@@ -18,7 +18,7 @@ const OrderItem = ({id, name, time, distance, completed, doneAt, address}) => {
                     <Done doneAt={doneAt} />
                     :
                     <Address>
-                        {address}
+                        {address.slice(0, 30) + ' ...'}
                     </Address>
                 }
             </div>
@@ -31,4 +31,4 @@ const OrderItem = ({id, name, time, distance, completed, doneAt, address}) => {
     );
 }
  
-export default OrderItem;
+export default DeliveryItem;
