@@ -9,7 +9,7 @@ import OrderItem from './OrderItem'
 import Detail from './Detail'
 import styled from 'styled-components'
 import items from './items'
-import ChargeModal from './ChargeModal';
+import AddNew from './AddNew';
 import StyledButton from '../../shared/StyledButton';
 
 const NoOrderText = styled.span`
@@ -45,7 +45,7 @@ const OrderCard = ({view, done}) => {
                     {items.map((item, index) => <OrderItem key={index} {...item} edit={edit} />)}
                 </OrderList>
                 <Detail />
-                {!view && <ChargeModal />}
+                {!view && <AddNew />}
                 </>
             }
         </Wrapper>

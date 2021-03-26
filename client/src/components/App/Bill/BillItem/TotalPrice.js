@@ -7,6 +7,7 @@ const TotalPrice = styled.span`
     border-radius: 10px;
     background-color: ${props => props.completed ? '#FFDB6D' : '#FF617A'};
     color: ${props => props.completed ? '#5b5b5b' : 'white'};
+    cursor: pointer;
 `
 
 export default TotalPrice

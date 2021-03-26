@@ -15,7 +15,7 @@ const Button = styled(StyledButton)`
     margin-top: 20px;
 `
 
-const ChargeModal = () => {
+const AddNew = () => {
     const options = ['Select payment method', 'Cash', 'Bank transfer']
     const [input, setInput] = useState({name: '', payment: options[0]})
 
@@ -37,7 +37,7 @@ const ChargeModal = () => {
                 <ModalBody width='500px'>
                     <CloseBtn onClick={() => setShow(false)} />
                     <ModalTitle>
-                        Charge the Bill
+                        Add new order
                     </ModalTitle>
                     <InputGroup>
                         <TextInput onChange={handleChange} name='name' value={input.name} placeholder='Name' autoComplete='off' />
@@ -46,7 +46,8 @@ const ChargeModal = () => {
                         </Select>
                     </InputGroup>
                     <ButtonGroup>
-                        <StyledButton color='primary'>Charge <span style={{fontWeight: '400'}}>Rp. 16.500</span></StyledButton>
+                        <StyledButton onClick={() => setShow(false)} color='disabled'>Cancel</StyledButton>
+                        <StyledButton color='primary'>Add <span style={{fontWeight: '400'}}>Rp. 16.500</span></StyledButton>
                     </ButtonGroup>
                 </ModalBody>
             </Modal>
@@ -54,4 +55,4 @@ const ChargeModal = () => {
     );
 }
  
-export default ChargeModal;
+export default AddNew;
