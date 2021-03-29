@@ -38,9 +38,9 @@ const Floated = styled.div`
 
 
 
-const CategoryItem = ({index, active, title, icon, onClick, edit}) => {
+const CategoryItem = ({index, active, nama, icon, onClick, edit}) => {
     const [show, setShow] = useState(false)
-    const initData = {icon, name: title}
+    const initData = {icon, name: nama}
     const [input, setInput] = useState({...initData, icon: ''})
     
     const handleChange = e => {
@@ -66,7 +66,7 @@ const CategoryItem = ({index, active, title, icon, onClick, edit}) => {
                     <ReactSVG src={`./assets/icon/${icon}`} />
                 </CategoryIcon>
                 <DescTitle color={active === index ? '#5b5b5b' : '#b5b5b5'} mb='0'>
-                    {title}
+                    {nama}
                 </DescTitle>
                 {edit && 
                     <Floated show={active === index}>
@@ -87,7 +87,7 @@ const CategoryItem = ({index, active, title, icon, onClick, edit}) => {
                     handleChange={handleChange}
                 />
                 <ConfirmationModal
-                    title='Are you sure?'
+                    nama='Are you sure?'
                     body='Do you really want to delete these category? This process cannot be undone.'
                     show={show == 'delete'}
                     closeModal={closeModal}
