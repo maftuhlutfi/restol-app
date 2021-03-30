@@ -4,16 +4,11 @@ import ListItem from "./ListItem";
 import ListContainer from "./ListContainer";
 import Wrapper from "./Wrapper";
 
-const Dropdown = ({text, list}) => {
+const Dropdown = ({text, list, active, handleChange}) => {
     const [collapse, setCollapse] = useState(true)
-    const [active, setActive] = useState(list[0])
 
     const handleCollapse = () => {
         setCollapse(prev => !prev)
-    }
-
-    const handleClick = li => {
-        setActive(li)
     }
 
     return (
@@ -21,7 +16,7 @@ const Dropdown = ({text, list}) => {
             <span>{text} <b>{active}</b></span>
             <ReactSVG src='./assets/icon/drop.svg' />
             {!collapse && <ListContainer>
-                {list.map((li, index) => <ListItem active={active === li} key={index} onClick={() => handleClick(li)}>{li}</ListItem>)}
+                {list.map((li, index) => <ListItem active={active === li} key={index} onClick={() => handleChange(li)}>{li}</ListItem>)}
             </ListContainer>}
         </Wrapper>
     );

@@ -1,27 +1,27 @@
 import * as types from "../types";
 
 const INITIAL_STATE = {
-    categoryItems: [],
+    productItems: [],
     isLoading: false,
     errorMessage: ''
 }
 
-const categoryReducer = (state = INITIAL_STATE, action) => {
+const productReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case types.GET_CATEGORIES_START:
+        case types.GET_PRODUCT_START:
             return {
                 ...state,
                 isLoading: true,
                 error: ''
             }
-        case types.GET_CATEGORIES_SUCCESS:
+        case types.GET_PRODUCT_SUCCESS:
             return {
                 ...state,
-                categoryItems: action.payload,
+                productItems: action.payload,
                 isLoading: false,
                 error: ''
             }
-        case types.GET_CATEGORIES_FAILURE:
+        case types.GET_PRODUCT_FAILURE:
             return {
                 ...state,
                 isLoading: false,
@@ -32,4 +32,4 @@ const categoryReducer = (state = INITIAL_STATE, action) => {
     }
 }
 
-export default categoryReducer
+export default productReducer

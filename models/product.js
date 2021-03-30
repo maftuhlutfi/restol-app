@@ -9,19 +9,34 @@ const Product = {
         })
     },
     selectAllProductByCategory: (categoryId, cb) => {
-        const queryString = `SELECT *
+        let queryString = `SELECT p.*, SUM(do.jumlah) AS total_penjualan
             FROM produk p
-            WHERE k.id = ?`
-        connection.execute(queryString, categoryId, (err, result) => {
-            if (err) throw err;
-            cb(result);
-        })
+            INNER JOIN kategori k
+            INNER JOIN detail_order do
+            WHERE k.id = ?
+            GROUP BY p.id`
+        if (categoryId == 0) {
+            queryString = `SELECT p.*, SUM(do.jumlah) AS total_penjualan
+            FROM detail_order do
+            INNER JOIN produk p
+            GROUP BY p.id
+            ORDER BY SUM(do.jumlah)`
+            connection.query(queryString, (err, result) => {
+                if (err) throw err;
+                cb(result);
+            })
+        } else {
+            connection.execute(queryString, [categoryId], (err, result) => {
+                if (err) throw err;
+                cb(result);
+            })
+        }
     },
     selectProductById: (id, cb) => {
         const queryString = `SELECT *
             FROM produk
             WHERE id = ?`
-        connection.execute(queryString, id, (err, result) => {
+        connection.execute(queryString, [id], (err, result) => {
             if (err) throw err;
             cb(result)
         })

@@ -9,6 +9,20 @@ export const getCategory = () => {
         url: `${BASE_API}/category`
     })
     .then(res => {
+        return res.data
+    })
+    .catch(err => {
+        throw err.response.data
+    })
+}
+
+export const getProductByCategory = id => {
+    return axios({
+        method: 'GET',
+        withCredentials: true,
+        url: `${BASE_API}/product?kategori=${id}`
+    })
+    .then(res => {
         console.log(res)
         return res.data
     })

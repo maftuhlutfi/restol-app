@@ -41,14 +41,14 @@ const ButtonGroup = styled.div`
 `
 
 const ProductItem = ({product, edit}) => {
-    const {name, price, foto} = product
+    const {nama, harga, foto} = product
 
     return (
         <>
             <Card padding='25px' width='100%'>
                 <Picture foto={foto} />
-                <Name>{name}</Name>
-                <Price>Rp. {price}</Price>
+                <Name>{nama}</Name>
+                <Price>Rp. {harga}</Price>
                 {edit ? 
                 <ButtonGroup>
                     <EditProduct initData={product} />

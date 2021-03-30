@@ -5,9 +5,15 @@ module.exports = {
     // @route   GET /api/product
     // @access  Public
     getAllProduct: (req, res) => {
-        Product.selectAllProduct(data => {
-            res.status(200).send(data)
-        })
+        if (req.query.kategori) {
+            Product.selectAllProductByCategory(req.query.kategori, data => {
+                res.status(200).send(data)
+            })
+        } else {
+            Product.selectAllProduct(data => {
+                res.status(200).send(data)
+            })
+        }
     },
     // @desc    Get product by id
     // @route   GET /api/product/:id
