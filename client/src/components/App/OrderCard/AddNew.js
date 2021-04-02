@@ -10,12 +10,16 @@ import StyledButton from '../../shared/StyledButton';
 import ButtonGroup from '../../shared/ButtonGroup';
 import styled from 'styled-components'
 import { CloseBtn } from '../../shared/Modal';
+import { useSelector } from 'react-redux';
+import { selectTotalPrice } from '../../../redux/selectors/cartSelector';
 
 const Button = styled(StyledButton)`
     margin-top: 20px;
 `
 
 const AddNew = () => {
+    const totalPrice = useSelector(state => selectTotalPrice(state))
+
     const options = ['Select payment method', 'Cash', 'Bank transfer']
     const [input, setInput] = useState({name: '', payment: options[0]})
 
@@ -47,7 +51,7 @@ const AddNew = () => {
                     </InputGroup>
                     <ButtonGroup>
                         <StyledButton onClick={() => setShow(false)} color='disabled'>Cancel</StyledButton>
-                        <StyledButton color='primary'>Add <span style={{fontWeight: '400'}}>Rp. 16.500</span></StyledButton>
+                        <StyledButton color='primary'>Add <span style={{fontWeight: '400'}}>Rp. {totalPrice + totalPrice * 1 / 10}</span></StyledButton>
                     </ButtonGroup>
                 </ModalBody>
             </Modal>

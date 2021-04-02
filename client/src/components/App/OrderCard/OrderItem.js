@@ -60,7 +60,6 @@ const EditQty = styled.div`
         border: solid 1px #c0c0c0;
         margin: 0 3px;
         border-radius: 5px;
-        cursor: text;
     }
 `
 
@@ -110,7 +109,7 @@ const OrderItem = ({ edit, ...product }) => {
             {edit ? 
                 <EditQty>
                     <button onClick={handleRemove}>-</button>
-                    <span contentEditable='true'>{quantity}</span>
+                    <span>{quantity}</span>
                     <button onClick={handleAdd}>+</button>
                 </EditQty>
                 :
