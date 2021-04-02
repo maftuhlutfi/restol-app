@@ -12,12 +12,17 @@ import items from './items'
 import AddNew from './AddNew';
 import StyledButton from '../../shared/StyledButton';
 
+import { useDispatch, useSelector } from "react-redux";
+import { selectCartItems } from '../../../redux/selectors/cartSelector';
+
 const NoOrderText = styled.span`
     text-align: center;
     font-size: 14px;
 `
 
 const OrderCard = ({view, done}) => {
+    const cartItems = useSelector(state => selectCartItems(state))
+
     const [edit, setEdit] = useState(false)
 
     return (
@@ -37,16 +42,16 @@ const OrderCard = ({view, done}) => {
                 }
             </Header>
             }
-            {false ? 
-                <NoOrderText>No product to order.</NoOrderText>
-                :
+            {cartItems.length ? 
                 <>
                 <OrderList>
-                    {items.map((item, index) => <OrderItem key={index} {...item} edit={edit} />)}
+                    {cartItems.map((item, index) => <OrderItem key={index} {...item} edit={edit} />)}
                 </OrderList>
                 <Detail />
                 {!view && <AddNew />}
                 </>
+                :
+                <NoOrderText>No product to order.</NoOrderText>
             }
         </Wrapper>
     );

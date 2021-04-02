@@ -4,6 +4,8 @@ import styled from "styled-components"
 import StyledButton from "../../shared/StyledButton";
 import DeleteProduct from './DeleteProduct'
 import EditProduct from "./EditProduct";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../../redux/actions/cartActions";
 
 const Picture = styled.div`
     width: 90px;
@@ -41,7 +43,13 @@ const ButtonGroup = styled.div`
 `
 
 const ProductItem = ({product, edit}) => {
+    const dispatch = useDispatch()
+
     const {nama, harga, foto} = product
+
+    const handleClick = () => {
+        dispatch(addItem(product))
+    }
 
     return (
         <>
@@ -55,7 +63,7 @@ const ProductItem = ({product, edit}) => {
                     <DeleteProduct />
                 </ButtonGroup>
                 :
-                <StyledButton size='sm' color='primary'>ADD</StyledButton>
+                <StyledButton onClick={handleClick} size='sm' color='primary'>ADD</StyledButton>
                 }
             </Card>
         </>

@@ -1,5 +1,7 @@
+import { useDispatch } from 'react-redux'
 import { ReactSVG } from 'react-svg'
 import styled from 'styled-components'
+import { addItem, clearItem, removeItem } from '../../../redux/actions/cartActions'
 import IconWrapper from './IconWrapper'
 import Text from './Text'
 
@@ -80,27 +82,43 @@ const Delete = styled(IconWrapper)`
     }
 `
 
-const OrderItem = ({picture, name, price, qty, edit}) => {
+const OrderItem = ({ edit, ...product }) => {
+    const dispatch = useDispatch()
+
+    const {picture, name, harga, quantity} = product
+
+    const handleAdd = () => {
+        dispatch(addItem(product))
+    }
+
+    const handleRemove = () => {
+        dispatch(removeItem(product))
+    }
+
+    const handleClear = () => {
+        dispatch(clearItem(product))
+    }
+
     return (
         <Wrapper>
-            {edit && <Delete><ReactSVG src='./assets/icon/delete.svg' /></Delete>}
+            {edit && <Delete onClick={handleClear}><ReactSVG src='./assets/icon/delete.svg' /></Delete>}
             <Picture url={picture} />
             <NamePriceWrapper>
                 <Name>{name}</Name>
-                <Text>Rp. {price}</Text>
+                <Text>Rp. {harga}</Text>
             </NamePriceWrapper>
             {edit ? 
                 <EditQty>
-                    <button>-</button>
-                    <span contentEditable='true'>{qty}</span>
-                    <button>+</button>
+                    <button onClick={handleRemove}>-</button>
+                    <span contentEditable='true'>{quantity}</span>
+                    <button onClick={handleAdd}>+</button>
                 </EditQty>
                 :
                 <Qty>
-                    x{qty}
+                    x{quantity}
                 </Qty>
             }
-            {!edit && <Text>Rp. {price*qty}</Text>}
+            {!edit && <Text>Rp. {harga*quantity}</Text>}
         </Wrapper>
     );
 }
