@@ -23,8 +23,9 @@ const HomePage = () => {
 
     const [activeIndex, setActiveIndex] = useState(0);
     const [activeSort, setActiveSort] = useState(dropdownList[0])
+    const [search, setSearch] = useState('')
 
-    function handleClick(index) {
+    const handleClick = index => {
         setActiveIndex(index)
     }
 
@@ -32,29 +33,50 @@ const HomePage = () => {
         setActiveSort(li)
     }
 
+    const handleSearchInputChange = e => {
+        setSearch(e.target.value)
+    }
+
     useEffect(() => {
         dispatch(getCategoryStart())
     }, [])
     
     useEffect(() => {
-        dispatch(getProductStart(activeIndex))
-    }, [activeIndex])
+        dispatch(getProductStart())
+    }, [])
+
+    const filterAndSortProduct = () => {
+        let filteredProduct = activeIndex === 0 ? products : products.filter(product => product.kategori === activeIndex)
+        filteredProduct = filteredProduct.filter(product => product.nama.toLowerCase().includes(search.toLowerCase()))
+
+        switch (activeSort) {
+            case 'Popular':
+                return filteredProduct.sort((a, b) => +b.total_penjualan - +a.total_penjualan)
+            case 'Name':
+                return filteredProduct.sort((a, b) => a.nama > b.nama ? 1 : -1)
+            case 'Price':
+                return filteredProduct.sort((a, b) => a.harga - b.harga)
+            default:
+                return filteredProduct
+        }
+    }
 
     return (
         <>
-            <Header title="Menu Category" search='Search Product' />
+            <Header title="Menu Category" search='Search Product' value={search} handleChange={handleSearchInputChange} />
             <Content>
                 <div>
                     <CategoryList>
                         {categories && 
-                            categories.map((category, index) => <CategoryItem index={index} onClick={handleClick} active={activeIndex} key={index} {...category} />)}
+                            categories.map((category, index) => <CategoryItem index={category.id} onClick={handleClick} active={activeIndex} key={index} {...category} />)}
                     </CategoryList>
                     <SubHeader>
                         <HeaderTitle title='Choose Product' size='28px' />
                         <Dropdown text='Sort by' list={dropdownList} active={activeSort} handleChange={handleDropdownChange} />
                     </SubHeader>
                     <ProductList>
-                        {products && products.map((product, index) => <ProductItem key={index} product={product} />)}
+                        {products && 
+                            filterAndSortProduct().map((product, index) => <ProductItem key={index} product={product} />)}
                     </ProductList>
                 </div>
                 <div>

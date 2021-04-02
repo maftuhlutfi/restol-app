@@ -5,14 +5,14 @@ import { ReactSVG } from "react-svg";
 import UserInfo from "./UserInfo/";
 import Cart from "./Cart";
 
-const Header = ({title, desc, search}) => {
+const Header = ({title, desc, search, value, handleChange}) => {
     return (
         <HeaderWrapper>
             <HeaderTitle title={title} />
-            <TextInputIcon type='text' placeholder={search} name='search' icon={`./assets/icon/search.svg`} />
+            <TextInputIcon value={value} onChange={handleChange} type='text' placeholder={search} name='search' icon={`./assets/icon/search.svg`} />
             <Cart />
             <UserInfo image='./assets/profile-2.jpg'/>
-            <TextInputIcon type='text' placeholder={search} name='search' icon={`./assets/icon/search.svg`} />
+            <TextInputIcon value={value} onChange={handleChange} type='text' placeholder={search} name='search' icon={`./assets/icon/search.svg`} />
         </HeaderWrapper>
     );
 }

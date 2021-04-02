@@ -2,7 +2,11 @@ const connection = require('../config/db')
 
 const Product = {
     selectAllProduct: cb => {
-        const queryString = `SELECT * FROM produk`
+        const queryString = `SELECT p.*, SUM(do.jumlah) AS total_penjualan
+        FROM produk p
+        LEFT JOIN detail_order do ON p.id = do.id_produk
+        GROUP BY p.id
+        ORDER BY SUM(do.jumlah), p.nama`
         connection.query(queryString, (err, result) => {
             if (err) throw err;
             cb(result);
@@ -12,15 +16,16 @@ const Product = {
         let queryString = `SELECT p.*, SUM(do.jumlah) AS total_penjualan
             FROM produk p
             INNER JOIN kategori k
-            INNER JOIN detail_order do
+            LEFT JOIN detail_order do ON p.id = do.id_produk
             WHERE k.id = ?
-            GROUP BY p.id`
+            GROUP BY p.id
+            ORDER BY SUM(do.jumlah), p.nama`
         if (categoryId == 0) {
             queryString = `SELECT p.*, SUM(do.jumlah) AS total_penjualan
-            FROM detail_order do
-            INNER JOIN produk p
+            FROM produk p
+            INNER JOIN detail_order do ON p.id = do.id_produk
             GROUP BY p.id
-            ORDER BY SUM(do.jumlah)`
+            ORDER BY SUM(do.jumlah), p.nama`
             connection.query(queryString, (err, result) => {
                 if (err) throw err;
                 cb(result);

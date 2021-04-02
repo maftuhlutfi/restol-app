@@ -1,10 +1,13 @@
-import { getProductByCategory } from "../api"
+import { getAllProduct, getProductByCategory } from "../api"
 import { GET_PRODUCT_FAILURE, GET_PRODUCT_START, GET_PRODUCT_SUCCESS } from "../types"
 
 export const getProductStart = kategoriId => async dispatch => {
     dispatch({type: GET_PRODUCT_START})
     try {
-        const data = await getProductByCategory(kategoriId)
+        let data = await getAllProduct()
+        if (kategoriId) {
+            data = await getProductByCategory(kategoriId)
+        }
         dispatch(getProductSuccess(data))
     }
     catch (err) {

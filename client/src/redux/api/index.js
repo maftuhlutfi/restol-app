@@ -30,3 +30,18 @@ export const getProductByCategory = id => {
         throw err.response.data
     })
 }
+
+export const getAllProduct = () => {
+    return axios({
+        method: 'GET',
+        withCredentials: true,
+        url: `${BASE_API}/product`
+    })
+    .then(res => {
+        console.log(res)
+        return res.data
+    })
+    .catch(err => {
+        throw err.response.data
+    })
+}
